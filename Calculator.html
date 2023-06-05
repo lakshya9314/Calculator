@@ -1,0 +1,91 @@
+<!-- CALCULATOR -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    .calculator {
+      width: 500px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #f4f4f4;
+      border-radius: 66px;
+      color: aqua;
+    }
+    
+    .calculator input {
+      width: 77%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 20px;
+    }
+    
+    .calculator button {
+      width: 20%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 18px;
+    }
+    
+    .calculator button:nth-child(5) {
+      margin-right: 2%;
+    }
+    
+    .calculator button:nth-child(6) {
+      margin-left: 2%;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" disabled>
+    
+    <button onclick="clearInput()">C</button>
+    <button onclick="appendToInput('%')">%</button>
+    <button onclick="appendToInput('/')">/</button>
+    <button onclick="appendToInput('*')">x</button>
+    <br>
+    <button onclick="appendToInput('7')">7</button>
+    <button onclick="appendToInput('8')">8</button>
+    <button onclick="appendToInput('9')">9</button>
+    <button onclick="appendToInput('-')">-</button>
+    <br>
+    <button onclick="appendToInput('4')">4</button>
+    <button onclick="appendToInput('5')">5</button>
+    <button onclick="appendToInput('6')">6</button>
+    <button onclick="appendToInput('+')">+</button>
+    <br>
+    <button onclick="appendToInput('1')">1</button>
+    <button onclick="appendToInput('2')">2</button>
+    <button onclick="appendToInput('3')">3</button>
+    <button onclick="calculateResult()">=</button>
+    <br>
+    <button onclick="appendToInput('00')">00</button>
+    <button onclick="appendToInput('0')">0</button>
+    <button onclick="appendToInput('.')">.</button>
+    
+    
+  </div>
+  
+  <script>
+    function appendToInput(value) {
+      document.getElementById('result').value += value;
+    }
+    
+    function clearInput() {
+      document.getElementById('result').value = '';
+    }
+    
+    function calculateResult() {
+      const input = document.getElementById('result').value;
+      try {
+        const result = eval(input);
+        document.getElementById('result').value = result;
+      } catch (error) {
+        document.getElementById('result').value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
